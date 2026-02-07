@@ -1,158 +1,168 @@
-# GandalfLang 🧙‍♂️
+🧙 Gandalf Language
 
-A tiny interpreted scripting language inspired by fantasy spellcasting.
-Includes a lexer → parser (AST) → interpreter, plus a REPL and script runner.
+A Lord of the Rings–inspired programming language with Python-like power.
 
-## Features
+Gandalf Language (gandalf_lang) is an experimental programming language inspired by the Lord of the Rings universe.
+Its goal is to blend Python-style expressiveness with lore-aware semantics, creating a language that is both playful and surprisingly powerful.
 
-- Variables: `inscribe x = <expr>`
-- Printing: `proclaim <expr>`
-- Control flow: `if/then/else/end`, `while/do/end`
-- Functions (“spells”): `spell name(args...) do ... end`
-- `return` inside spells
-- Safe host calls via `invoke "..." with ...` (whitelist)
+This is not just a joke DSL — the project is designed as a real interpreter with a clean architecture and room to grow into a general-purpose scripting language.
 
-## Project layout
+✨ Features
+Core Language
 
-gandalf_lang/
-gandalf_lang/
-init.py
-main.py
-tokens.py
-lexer.py
-ast_nodes.py
-parser.py
-runtime.py
-repl.py
-test.gandalf
-README.md
+Variables and expressions
 
+Arithmetic and comparisons
 
-## Requirements
+if / else conditionals
 
-- Python 3.10+ (recommended)
+while loops
 
-## Run
+User-defined functions (“spells”)
 
-### REPL
+Return values
+
+Errors with clear diagnostics (“Fizzle”)
+
+Data Structures
+
+Lists
+
+Dictionaries (maps)
+
+Indexing (xs[0], m["key"])
+
+Built-ins: length, push, pop, get, put, keys, values
+
+LOTR Lore System
+
+Regions: shire, moria, rivendell, mordor
+
+Races: man, elf, dwarf, hobbit, wizard
+
+Artifacts: ring, mithril, phial
+
+The runtime reacts dynamically to lore context:
+
+Output formatting changes by region
+
+Power and corruption depend on race, region, and artifacts
+
+Some actions are forbidden by lore rules
+
+Example:
+
+Invoking magic while bearing the Ring in Mordor will backfire.
+
+🔮 Built-in Spells
+Lore-aware
+
+palantir(x)
+
+vision(x)
+
+stamina(x)
+
+craft(x)
+
+spellcraft()
+
+inventory()
+
+power()
+
+corruption()
+
+Base
+
+ring(), precious()
+
+mellon()
+
+gandalf()
+
+you_shall_not_pass()
+
+Safe Python Invocations
+
+Whitelisted only:
+
+math.sqrt, math.floor, math.ceil, math.pow
+
+abs, len
+
+All other Python calls are blocked for safety.
+
+📁 Project Structure
+lotr-language/
+├── gandalf_lang/
+│   ├── __main__.py      # CLI entry point
+│   ├── lexer.py         # Tokenizer
+│   ├── parser.py        # Recursive-descent parser
+│   ├── ast_nodes.py     # AST definitions
+│   ├── runtime.py       # Interpreter / execution engine
+│   ├── tokens.py        # Tokens + RuntimeError
+│   └── repl.py          # Interactive REPL (optional)
+│
+├── examples/
+│   ├── moria.gandalf
+│   ├── regions_showcase.gandalf
+│   ├── races_showcase.gandalf
+│   ├── artifacts_showcase.gandalf
+│   └── collections_showcase.gandalf
+│
+└── README.md
+
+▶️ Running Examples
+
 From the project root:
 
-```bash
-python -m gandalf_lang
+python -m gandalf_lang examples/moria.gandalf
+python -m gandalf_lang examples/regions_showcase.gandalf
+python -m gandalf_lang examples/races_showcase.gandalf
+python -m gandalf_lang examples/artifacts_showcase.gandalf
+python -m gandalf_lang examples/collections_showcase.gandalf
 
-Run a script
-python -m gandalf_lang test.gandalf
-
-Language tour
-Basics
-inscribe x = 9
-proclaim x
-proclaim "x + 1 = " + (x + 1)
-
-Math + floats
-
-Division uses / (float division):
-
-inscribe a = 7
-inscribe b = 2
-proclaim a / b   # 3.5
-
-If / else
-inscribe x = 9
-
-if x >= 10 then
-  proclaim "x is big"
-else
-  proclaim "x is small"
+🧪 Example Code
+be race hobbit
+in region shire do
+    proclaim power()
+    claim ring
+    bear ring
+    proclaim corruption()
 end
 
-While loop
-inscribe i = 1
-inscribe s = 0
+🧠 Design Goals
 
-while i <= 5 do
-  inscribe s = s + i
-  inscribe i = i + 1
-end
+Clean interpreter architecture (lexer → parser → AST → runtime)
 
-proclaim s  # 15
+Strong error handling with thematic messages
 
-Spells (functions)
-spell add(p, q) do
-  return p + q
-end
+Python-like semantics where it makes sense
 
-proclaim add(3, 4)  # 7
+Lore-based constraints as first-class language features
 
+Easy extensibility (new syntax, new regions, new artifacts)
 
-Factorial example:
+🛠 Roadmap
 
-spell fact(n) do
-  inscribe r = 1
-  inscribe k = 2
-  while k <= n do
-    inscribe r = r * k
-    inscribe k = k + 1
-  end
-  return r
-end
+Planned features:
 
-proclaim fact(6)  # 720
+for x in collection do ... end
 
-Safe host calls (invoke)
+Standard library split
 
-To call a small set of whitelisted Python functions:
+Modules / imports
 
-proclaim invoke "math.sqrt" with 9
-proclaim invoke "math.pow" with 2, 5
-proclaim invoke "abs" with -12
-proclaim invoke "len" with "wizard"
+Improved REPL
 
+More regions, races, and artifacts
 
-Important: the target must be a string, e.g. "math.sqrt".
-Writing invoke math.sqrt with 9 will fail because . is not a valid identifier character.
+Optional static checks
 
-Allowed invoke targets
+Better tooling and docs
 
-math.sqrt
+📜 License
 
-math.floor
-
-math.ceil
-
-math.pow
-
-abs
-
-len
-
-(You can extend this list in runtime.py by editing SAFE_INVOKE.)
-
-Comments
-
-Use # for line comments:
-
-# this is a comment
-inscribe x = 1
-
-Errors
-
-Errors show line and column:
-
-Fizzle: Unexpected character '.' (line 1, col 28)
-
-Development notes
-
-The interpreter pipeline is: tokenize → Parser → AST → Interpreter.
-
-The runtime is intentionally small and safe by default.
-
-Roadmap ideas
-
-Add a tests/ folder with pytest regression tests
-
-Add boolean literals (true/false)
-
-Add VS Code syntax highlighting
-
-Add better REPL multiline detection
+This project is experimental and educational.
+No official affiliation with Tolkien Estate or related IP holders.
