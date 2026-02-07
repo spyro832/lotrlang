@@ -84,26 +84,6 @@ abs, len
 
 All other Python calls are blocked for safety.
 
-Project Structure
-lotr-language/
-├── gandalf_lang/
-│   ├── __main__.py      # CLI entry point
-│   ├── lexer.py         # Tokenizer
-│   ├── parser.py        # Recursive-descent parser
-│   ├── ast_nodes.py     # AST definitions
-│   ├── runtime.py       # Interpreter / execution engine
-│   ├── tokens.py        # Tokens + RuntimeError
-│   └── repl.py          # Interactive REPL (optional)
-│
-├── examples/
-│   ├── moria.gandalf
-│   ├── regions_showcase.gandalf
-│   ├── races_showcase.gandalf
-│   ├── artifacts_showcase.gandalf
-│   └── collections_showcase.gandalf
-│
-└── README.md
-
 Running Examples
 
 From the project root:
@@ -134,21 +114,3 @@ Python-like semantics where it makes sense
 Lore-based constraints as first-class language features
 
 Easy extensibility (new syntax, new regions, new artifacts)
-
-🛠 Roadmap
-
-Planned features:
-
-for x in collection do ... end
-
-Standard library split
-
-Modules / imports
-
-Improved REPL
-
-More regions, races, and artifacts
-
-Optional static checks
-
-Better tooling and docs
