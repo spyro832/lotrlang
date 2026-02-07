@@ -1,13 +1,4 @@
-🧙 Gandalf Language
-
-A Lord of the Rings–inspired programming language with Python-like power.
-
-Gandalf Language (gandalf_lang) is an experimental programming language inspired by the Lord of the Rings universe.
-Its goal is to blend Python-style expressiveness with lore-aware semantics, creating a language that is both playful and surprisingly powerful.
-
-This is not just a joke DSL — the project is designed as a real interpreter with a clean architecture and room to grow into a general-purpose scripting language.
-
-✨ Features
+Features
 Core Language
 
 Variables and expressions
@@ -54,7 +45,7 @@ Example:
 
 Invoking magic while bearing the Ring in Mordor will backfire.
 
-🔮 Built-in Spells
+Built-in Spells
 Lore-aware
 
 palantir(x)
@@ -93,7 +84,7 @@ abs, len
 
 All other Python calls are blocked for safety.
 
-📁 Project Structure
+Project Structure
 lotr-language/
 ├── gandalf_lang/
 │   ├── __main__.py      # CLI entry point
@@ -113,7 +104,7 @@ lotr-language/
 │
 └── README.md
 
-▶️ Running Examples
+Running Examples
 
 From the project root:
 
@@ -123,7 +114,7 @@ python -m gandalf_lang examples/races_showcase.gandalf
 python -m gandalf_lang examples/artifacts_showcase.gandalf
 python -m gandalf_lang examples/collections_showcase.gandalf
 
-🧪 Example Code
+Example Code
 be race hobbit
 in region shire do
     proclaim power()
@@ -132,7 +123,7 @@ in region shire do
     proclaim corruption()
 end
 
-🧠 Design Goals
+ Design Goals
 
 Clean interpreter architecture (lexer → parser → AST → runtime)
 
@@ -161,8 +152,3 @@ More regions, races, and artifacts
 Optional static checks
 
 Better tooling and docs
-
-📜 License
-
-This project is experimental and educational.
-No official affiliation with Tolkien Estate or related IP holders.
