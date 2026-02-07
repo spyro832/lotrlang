@@ -1,0 +1,27 @@
+# Moria demo
+
+say "=== Speak, friend, and enter ==="
+say "The password is: " + mellon()
+
+bind x = 9
+say "The Ring: " + ring()
+say palantir("A shadow moves in the deep...")
+
+say "sqrt(9) = " + summon "math.sqrt" with x
+
+when x >= 10 then
+  say "The wizard is impressed."
+otherwise
+  say gandalf("Gandalf the Grey")
+end
+
+bind i = 1
+bind fear = 1
+endure i <= 3 do
+  say "Fly, you fools! (fear=" + fear + ")"
+  bind fear = fear + 1
+  bind i = i + 1
+end
+
+say you_shall_not_pass()
+say "=== end ==="

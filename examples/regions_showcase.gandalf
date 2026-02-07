@@ -1,0 +1,27 @@
+say "=== regions showcase ==="
+
+in shire do
+  say "REGION=" + REGION
+  say "All is well."
+  say palantir("A warm hearth and second breakfast.")
+end
+
+in moria do
+  say "REGION=" + REGION
+  say "Drums..."
+  say palantir("A shadow moves in the deep...")
+end
+
+in rivendell do
+  say "REGION=" + REGION
+  say "Songs of old."
+  say palantir("Starlight on the water.")
+end
+
+in mordor do
+  say "REGION=" + REGION
+  say "Ash and fire."
+  say palantir("The Eye is watching.")
+end
+
+say "=== done ==="

@@ -1,0 +1,34 @@
+say "=== races showcase ==="
+
+say "Default RACE=" + RACE + ", REGION=" + REGION
+say vision(100)
+
+be elf
+in rivendell do
+  say "RACE=" + RACE + ", REGION=" + REGION
+  say vision(100)
+  say craft("a white cloak")
+end
+
+be dwarf
+in moria do
+  say "RACE=" + RACE + ", REGION=" + REGION
+  say vision(100)
+  say craft("a mithril mail")
+end
+
+be hobbit
+in shire do
+  say "RACE=" + RACE + ", REGION=" + REGION
+  say stamina(50)
+  say craft("second breakfast")
+end
+
+be wizard
+in mordor do
+  say "RACE=" + RACE + ", REGION=" + REGION
+  say spellcraft()
+  say vision(100)
+end
+
+say "=== done ==="

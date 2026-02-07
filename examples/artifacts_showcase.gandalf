@@ -1,0 +1,40 @@
+say "=== artifacts showcase ==="
+say "RACE=" + RACE + ", REGION=" + REGION
+say inventory()
+say power()
+say corruption()
+
+claim mithril
+say inventory()
+say power()
+
+be hobbit
+in shire do
+  say "RACE=" + RACE + ", REGION=" + REGION
+  claim ring
+  say inventory()
+  say power()
+  say corruption()
+  bear ring
+  say "HAS_RING=" + HAS_RING + ", BEARING_RING=" + BEARING_RING
+  say power()
+  say corruption()
+end
+
+in mordor do
+  say "RACE=" + RACE + ", REGION=" + REGION
+  say power()
+  say corruption()
+  say "Trying invoke in Mordor while bearing ring (should fizzle):"
+  say summon "math.sqrt" with 9
+end
+
+unbear ring
+say "Back to wilds. BEARING_RING=" + BEARING_RING
+destroy ring
+say "RING_DESTROYED=" + RING_DESTROYED
+say inventory()
+say power()
+say corruption()
+
+say "=== done ==="

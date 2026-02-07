@@ -1,0 +1,25 @@
+say "=== collections showcase ==="
+
+bind xs = [1, 2, 3]
+say xs
+say xs[0]
+
+push(xs, 99)
+say xs
+say "length(xs)=" + length(xs)
+
+bind m = {name: "Frodo", age: 33}
+say m
+say m["name"]
+say get(m, "age")
+
+put(m, "ringbearer", true)
+say m
+say keys(m)
+say values(m)
+
+say "nil test:"
+bind z = nil
+say z
+
+say "=== done ==="
